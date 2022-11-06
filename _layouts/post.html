@@ -11,8 +11,6 @@ layout: default
       <article class="blog-post">
         {{ content }}
       </article>
-
-
     </div>
 
     <div class="col-md-4">
@@ -21,10 +19,12 @@ layout: default
           <h4 class="fst-italic">{{author.name}}</h4>
           <p class="mb-0">{{author.bio}}</p>
         </div>
+        {%- if page.toc -%}
         <div class="p-4">
           <h4 class="fst-italic">Table Of Contents</h4>
             {% toc %} 
         </div>
+        {%- endif -%}
         {% if page.references %}
         {% assign references = page.references | split: " " %}
         <div class="p-4">
