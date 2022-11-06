@@ -5,6 +5,7 @@ Codey Jekyll Blog Theme
 Author [Fatih Zor](https://fatihzor.dev).
 
 Dark Mode Development w/ https://vinorodrigues.github.io/bootstrap-dark-5/
+Use jekyll-toc plugin on Github Pages https://dqdongg.com/blog/github/2018/12/29/Blog-Jekyll-toc-plugin.html
 
 ### Features
 
