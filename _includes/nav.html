@@ -1,0 +1,16 @@
+<nav class="py-2 bg-light border-bottom">
+    <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+        {%- for item in site.nav.items -%}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+        {%- endfor -%}
+        </ul>
+        <ul class="nav">
+        {% if site.nav.button %}
+            <li class="nav-item"><a href="{{site.nav.button.url}}" class="btn btn-warning"><i class="bi {{site.nav.button.icon}} text-danger"></i> {{site.nav.button.title}}</a></li>
+        {% endif %}
+        </ul>
+    </div>
+</nav>

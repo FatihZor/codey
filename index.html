@@ -1,0 +1,25 @@
+---
+layout: home
+---
+
+{% for post in site.posts %}
+{% if post.pinned %}
+<div class="card card-hover-zoom border-warning border-dashed mb-1">
+    <div class="d-flex justify justify-content-between p-2">
+        <div><a class="stretched-link text-decoration-none" href="{{post.url}}"></a><i class="bi {{site.settings.pinned_post_icon}} me-2 card-pinned-link-icon"></i>{{post.title}}</div>
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="">{{ post.date | date: site.settings.pinned_post_date_format }}</time>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+<h3 class="mt-5">All Posts</h3>
+<hr>
+{% for post in paginator.posts %}
+<div class="card card-hover-zoom border-info border-dashed mb-1">
+    <div class="d-flex justify justify-content-between p-2">
+        <div><a class="stretched-link text-decoration-none text-default" href="{{post.url}}"></a><i class="bi {{site.settings.post_icon}} me-2 card-normal-link-icon"></i>{{post.title}}</div>
+        <time datetime="{{ post.date | date_to_xmlschema }}" class="">{{ post.date | date: site.settings.post_date_format }}</time>
+    </div>
+</div>
+{% endfor %}

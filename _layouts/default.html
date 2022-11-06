@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{site.settings.html_lang}}">
+  <head>
+    
+    <title>
+        {% if page.tag or page.title %}
+          {% if page.tag %}
+            {{ page.tag | escape }}
+          {% else %}
+            {{ page.title | escape }}
+          {% endif %}
+          -
+        {% endif %}
+        {% if paginator and paginator.page and paginator.total_pages > 1 and paginator.page > 1 %}
+          Page {{ paginator.page }} of {{ paginator.total_pages }} -
+        {% endif %}
+        {{ site.title | escape }}
+        {% unless page.tag or page.title %}
+          - {{ site.description | escape }}
+        {% endunless %}
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="color-scheme" content="light dark">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-nightshade.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+  </head>
+  <body>
+
+    {% include  nav.html %}
+    {% include  header.html %}
+    
+    <div class="container">
+      <div id="search-results" class="list-group mb-2"></div>
+      {{content}}
+    </div>
+  
+    <script src="/assets/js/jquery-3.6.1.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/darkmode.min.js"></script>
+    <script src="/assets/js/simple-jekyll-search.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+      var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-field'),
+        resultsContainer: document.getElementById('search-results'),
+        json: '{{ site.url }}{{ site.baseurl }}/search.json',
+        searchResultTemplate: '<a href="{url}" title="{description}" class="list-group-item list-group-item-action"><i class="bi {{site.settings.search_result_icon}} me-2"></i>{title}</a>',
+        noResultsText: 'No results found..',
+        limit: 10,
+        fuzzy: true,
+    })
+    </script>
+    </body>
+</html>

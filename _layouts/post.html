@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{% assign author = site.authors[page.author] %}
+<div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        {{ page.title }}
+      </h3>
+
+      <article class="blog-post">
+        {{ content }}
+      </article>
+
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-light rounded">
+          <h4 class="fst-italic">{{author.name}}</h4>
+          <p class="mb-0">{{author.bio}}</p>
+        </div>
+        <div class="p-4">
+          <h4 class="fst-italic">Table Of Contents</h4>
+            {% toc %} 
+        </div>
+        {% if page.references %}
+        {% assign references = page.references | split: " " %}
+        <div class="p-4">
+          <h4 class="fst-italic">References</h4>
+          <ol class="list-unstyled">
+            {% for reference in references %}
+            <li><a href="{{ reference }}">{{ reference }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+
+<!-- Alertbar Prev/Next -->
+<div class="page-next-prev card">
+    <div class="container">
+        <div class="row small font-weight-bold">
+          {% if page.previous.url %}
+            <div class="col-md-6 rightborder ps-0">
+                <a class="" href="{{page.previous.url | absolute_url}}">{% if page.previous.image %} <img height="30px" class="mr-1" src="{{page.previous.image | absolute_url}}"> {% endif %} {{page.previous.title}}</a>
+            </div>
+          {% endif %}
+          {% if page.next.url %}
+            <div class="col-md-6 text-right pe-0">
+                <a class="" href="{{page.next.url | absolute_url}}"> {{page.next.title}} {% if page.next.image %} <img height="30px" class="ml-1" src="{{page.next.image | absolute_url}}"> {% endif %}</a>
+            </div>
+          {% endif %}
+        </div>
+    </div>
+</div>
