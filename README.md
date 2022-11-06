@@ -17,6 +17,8 @@ Dark Mode Development w/ https://vinorodrigues.github.io/bootstrap-dark-5/
 - [x] Sitemap
 - [x] Next & Previous Post
 - [x] Search
+- [x] TOC (Table of Contents)
+- [x] References
 - [ ] Authors Page
 - [ ] Custom Error Pages
 - [ ] Json Feed
